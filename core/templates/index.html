@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Rocket Launch | Anywhere {% endblock %}
+{% block content %}
+
+
+<div class="jumbotron block-center">
+    <img src="{% static 'img/logo.png' %}" class="img-responsive">
+</div>
+{% include 'modal_news.html' %}
+
+<div id="nasa" class="jumbotron text-center">
+    <img src="{% static 'img/nasa_challenge_2018.png' %}" class="img-responsive">
+</div>
+<div id="aplicacao" class="container block-center text-center">
+    <label for="">Clique para ver os próximos lançamentos</label>
+    <div>
+        <a href="#" class="btn btn-info" role="button">Executar</a>
+    </div>
+</div>
+
+<!-- Add Google Maps -->
+<div id="googleMap" style="height:400px;width:100%;"></div>
+<script>
+function myMap() {
+    var myCenter = new google.maps.LatLng(-29.70465,-53.72144);
+    var mapProp = {center:myCenter, zoom:20, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    var marker = new google.maps.Marker({position:myCenter});
+    marker.setMap(map);
+}
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+{% endblock %}
+
