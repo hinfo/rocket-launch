@@ -23,6 +23,16 @@ body {
   .pagination-centered {
   text-align: center;
 }
+
+#application {
+    display:block;
+    margin-left:auto;
+    margin-right:auto
+    height:500px;
+}
+#btnRun {
+    width:150px;
+}
 .center-block{
     display: block;
     margin-left: auto;

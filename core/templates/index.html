@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %}Rocket Launch | Anywhere {% endblock %}
 {% block content %}
-{% include 'modal_news.html' %}
 
 
 <div class="jumbotron block-center">
@@ -14,15 +13,19 @@
     <img src="{% static 'img/nasa_challenge_2018.png' %}" class="img-responsive center-block">
 </div>
 </div>
-<div id="aplicacao" class="container block-center text-center">
-    <label for="">Clique para ver os próximos lançamentos</label>
+{% include 'modal_news.html' %}
+<div id="application" class="jumbotron text-center">
+    <h3>Click to know when will the next Rocket Launch</h3>
     <div>
-        <a href="#" class="btn btn-info" role="button">Executar</a>
+        <a id="btnRun" href="https://www.nasa.gov/launchschedule/" class="btn btn-info" role="button">Run</a>
     </div>
 </div>
 
 <!-- Add Google Maps -->
-<div id="googleMap" style="height:400px;width:100%;"></div>
+<div class="container">
+    <h2 class="text-center"> Location </h2>
+    <div id="googleMap" style="height:400px;width:100%;"></div>
+</div>
 <script>
 function myMap() {
     var myCenter = new google.maps.LatLng(-29.70465,-53.72144);
@@ -31,7 +34,6 @@ function myMap() {
     var marker = new google.maps.Marker({position:myCenter});
     marker.setMap(map);
 }
-
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
