@@ -20,6 +20,9 @@ body {
   .long-text {
     text-align: justify;
   }
+  .pagination-centered {
+  text-align: center;
+}
 .center-block{
     display: block;
     margin-left: auto;
