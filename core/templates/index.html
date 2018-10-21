@@ -4,38 +4,46 @@
 {% block content %}
 
 
-<div class="jumbotron block-center">
-    <img src="{% static 'img/logo.png' %}" class="img-responsive">
-</div>
-
-<div id="nasa" class="row-fluid">
-<div class="span12 pagination-centered">
-    <img src="{% static 'img/nasa_challenge_2018.png' %}" class="img-responsive center-block">
-</div>
-</div>
-{% include 'modal_news.html' %}
-<div id="application" class="jumbotron text-center">
-    <h3>Click to know when will the next Rocket Launch</h3>
-    <div>
-        <a id="btnRun" href="https://www.nasa.gov/launchschedule/" class="btn btn-info" role="button">Run</a>
+    <div class="jumbotron block-center">
+        <img src="{% static 'img/logo.png' %}" class="img-responsive">
     </div>
-</div>
 
-<!-- Add Google Maps -->
-<div class="container">
-    <h2 class="text-center"> Location </h2>
-    <div id="googleMap" style="height:400px;width:100%;"></div>
-</div>
-<script>
-function myMap() {
-    var myCenter = new google.maps.LatLng(-29.70465,-53.72144);
-    var mapProp = {center:myCenter, zoom:20, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    var marker = new google.maps.Marker({position:myCenter});
-    marker.setMap(map);
-}
+    <div id="nasa" class="row-fluid">
+        <div class="span12 pagination-centered">
+            <img src="{% static 'img/nasa_challenge_2018.png' %}" class="img-responsive center-block">
+        </div>
+    </div>
+    <div class="jumbotron text-center">
+        <h3>Rocket Launch</h3>
+        <video width="500" height="400" controls>
+            <source src="https://files.slack.com/files-pri/TDJNND7NW-FDK030YA1/download/lan__amento_de___nibus_espacial_atlantis_da_nasa__online-video-cutter.com_.mp4"
+                    type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+        {% include "modal_news.html" %}
 
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <!-- Add Google Maps -->
+{#    <div class="container">#}
+{#        <h2 class="text-center"> Location </h2>#}
+{#        <div id="googleMap" style="height:400px;width:100%;"></div>#}
+{#    </div>#}
+    <script>
+        function myMap() {
+            var myCenter = new google.maps.LatLng(-29.70465, -53.72144);
+            var mapProp = {
+                center: myCenter,
+                zoom: 20,
+                scrollwheel: false,
+                draggable: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({position: myCenter});
+            marker.setMap(map);
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 {% endblock %}
 
